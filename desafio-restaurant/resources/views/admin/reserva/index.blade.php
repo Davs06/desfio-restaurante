@@ -1,37 +1,40 @@
 @extends('adminlte::page')
 
-@section('title', 'Admin Mesas')
+@section('title', 'Admin Reservas')
 
 @section('content_header')
-    <h1>Mesas</h1>
+    <h1>Reservas</h1>
 @stop
 
 @section('content')
-
     <div class="card">
-        <!-- /.card-header -->
         <div class="card-body">
             <table id="simpleTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Quantidade de lugares da mesa</th>
+                    <th>Nome</th>
+                    <th>Mesa</th>
+                    <th>Inicio da Reserva</th>
+                    <th>Fim reserva</th>
                 </tr>
                 </thead>
 
-                @foreach($mesas as $mesa)
+                @foreach($reservas as $reserva)
                     <tbody>
                     <tr>
-                        <td>{{$mesa->id}}</td>
-                        <td>{{$mesa->quantidade_de_lugares}} lugares</td>
+                        <td>{{$reserva->id}}</td>
+                        <td>{{$reserva->name}} </td>
+                        <td>{{$reserva->mesa_id}} </td>
+                        <td>{{$reserva->inicio_reserva}} </td>
+                        <td>{{$reserva->fim_reserva}} </td>
+
                     </tr>
                     </tbody>
                 @endforeach
             </table>
         </div>
-        <!-- /.card-body -->
     </div>
-    <!-- /.card -->
 @endsection
 
 @section('css')

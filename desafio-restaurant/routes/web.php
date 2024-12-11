@@ -22,21 +22,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/mesas', MesaController::class);
+
+//admin routes
+
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+    Route::resource('/mesas', MesaController::class);
+    Route::resource('/users', ProfileController::class);
+    Route::resource('/reservas', \App\Http\Controllers\Admin\ReservaController::class);
+});
 
 
+
+//auth routes
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
-
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
-
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware('auth');
+
+
+//    ->middleware('auth');
 
 require __DIR__.'/auth.php';
