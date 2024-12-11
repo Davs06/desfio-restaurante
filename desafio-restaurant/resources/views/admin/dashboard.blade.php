@@ -137,13 +137,15 @@
 
 @extends('adminlte::page')
 
-@section('title', 'Teste')
+@section('title', 'Dasboard')
 
 @section('content_header')
-    <h1>Teste</h1>
+    <h1>Davs Restaurante</h1>
 @stop
 
 @section('content')
 
-    <p>Hello World!!</p>
+    <h5>Admin Dashboard </h5>
+    <p>Bem Vindo <strong>Davs</strong> </p>
+
 @stop
