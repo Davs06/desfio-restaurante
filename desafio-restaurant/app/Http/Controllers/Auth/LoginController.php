@@ -21,7 +21,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($request->only('email', 'password'))) {
-            return view('admin.welcome');
+            return view('home');
         }
 
         return back()->withErrors(['email' => 'Invalid credentials.']);

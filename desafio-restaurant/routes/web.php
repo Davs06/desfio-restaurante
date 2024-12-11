@@ -19,8 +19,9 @@ use App\Http\Controllers\Auth\LogoutController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
 
 
 //admin routes
@@ -28,7 +29,7 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
-    });
+    })->name('dashboard');
     Route::resource('/mesas', MesaController::class);
     Route::resource('/users', ProfileController::class);
     Route::resource('/reservas', \App\Http\Controllers\Admin\ReservaController::class);
