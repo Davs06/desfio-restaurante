@@ -1,15 +1,20 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Reserva;
 use Illuminate\Http\Request;
+
 class ReservaController extends Controller
 {
+    protected $repository;
 
     public function __construct(Reserva $reserva)
     {
         $this->repository = $reserva;
     }
+
     /**
      * Display a listing of the resource.
      */
@@ -18,6 +23,7 @@ class ReservaController extends Controller
         $reservas = $this->repository->all();
         return view('admin.reserva.index', compact('reservas'));
     }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -25,6 +31,7 @@ class ReservaController extends Controller
     {
         //
     }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -32,6 +39,7 @@ class ReservaController extends Controller
     {
         //
     }
+
     /**
      * Display the specified resource.
      */
@@ -39,6 +47,7 @@ class ReservaController extends Controller
     {
         //
     }
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -46,6 +55,7 @@ class ReservaController extends Controller
     {
         //
     }
+
     /**
      * Update the specified resource in storage.
      */
@@ -53,6 +63,7 @@ class ReservaController extends Controller
     {
         //
     }
+
     /**
      * Remove the specified resource from storage.
      */

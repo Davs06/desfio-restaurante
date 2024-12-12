@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Fazer reserva</h5>
                     <p class="card-text">Veja os melhores horarios disponiveis para sua reserva. </p>
-                    <a href="#" class="btn btn-primary">Reservar</a>
+                    <a href="{{ route('reserva.create') }}" class="btn btn-primary">Reservar</a>
                 </div>
             </div>
 
@@ -22,7 +22,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Ver suas reservas</h5>
                     <p class="card-text">Veja, mude ou cancele suas reservas. </p>
-                    <a href="#" class="btn btn-primary">Ver</a>
+                    <a href="{{ route('reserva.index') }}" class="btn btn-primary">Ver</a>
                 </div>
             </div>
         </div>

@@ -20,9 +20,11 @@ use App\Http\Controllers\Auth\LogoutController;
 
 Route::get('/', function () {
     return view('home');
+})->name('home');
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('/reserva', \App\Http\Controllers\ReservaController::class);
 });
-
-
 
 //admin routes
 
