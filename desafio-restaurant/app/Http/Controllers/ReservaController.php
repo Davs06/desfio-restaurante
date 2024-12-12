@@ -141,6 +141,13 @@ class ReservaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $reservas = $this->repository->where('id', $id);
+
+        if (!$reservas) {
+            return redirect()->back()->with('fail', 'Reserva nao encontrada.');
+        }
+        $reservas->delete();
+
+        return redirect()->route('reserva.index')->with('success', 'Reserva removida com sucesso.');
     }
 }

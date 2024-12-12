@@ -33,7 +33,7 @@
                                 <td>{{ \Carbon\Carbon::parse($reserva->fim_reserva)->format('d/m/Y H:i') }}</td>
                                 <td>
                                     <a href="{{ route('reserva.edit', $reserva->id) }}" class="btn btn-warning btn-sm">Editar</a>
-                                    <form action="{{ route('reservas.destroy', $reserva->id) }}" method="POST"
+                                    <form action="{{ route('reserva.destroy', $reserva->id) }}" method="POST"
                                           style="display: inline-block;">
                                         @csrf
                                         @method('DELETE')

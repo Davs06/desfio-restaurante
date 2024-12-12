@@ -26,8 +26,8 @@
                         <td>{{$reserva->id}}</td>
                         <td>{{$reserva->name}} </td>
                         <td>{{$reserva->mesa_id}} </td>
-                        <td>{{$reserva->inicio_reserva}} </td>
-                        <td>{{$reserva->fim_reserva}} </td>
+                        <td>{{\Carbon\Carbon::parse($reserva->inicio_reserva)->format('d/m/Y H:i')}} </td>
+                        <td>{{\Carbon\Carbon::parse($reserva->fim_reserva)->format('d/m/Y H:i')}} </td>
 
                     </tr>
                     </tbody>
