@@ -2,7 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/desafio-restaurante" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/desafio-restaurante/setup-docker-laravel" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/desafio-restaurant/setup-docker-laravel" vcs="Git" />
   </component>
 </project>
