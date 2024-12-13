@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Mesa;
-use Illuminate\Http\Request;
+use App\Models\Mesa;
 
 class MesaController extends Controller
 {

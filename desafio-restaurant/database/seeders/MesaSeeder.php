@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Admin\Mesa;
+use App\Models\Mesa;
 use Illuminate\Database\Seeder;
 
 class MesaSeeder extends Seeder

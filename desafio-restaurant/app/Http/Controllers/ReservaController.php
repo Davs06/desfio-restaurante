@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin\Mesa;
-use App\Models\Admin\Reserva;
+use App\Models\Mesa;
+use App\Models\Reserva;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +22,7 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        $reservas = $this->repository->where('user_id', Auth::id())->get();
+        $reservas = $this->repository->where('user_id', Auth::id())->paginate();
 
         return view('reservas.index', compact('reservas'));
     }
@@ -112,9 +112,11 @@ class ReservaController extends Controller
             return redirect()->back()->with('fail', 'Reserva nao encontrada.');
         }
 
-        $request->validate(['mesa_id' => 'required|exists:mesas,id',
+        $request->validate([
+            'mesa_id' => 'required|exists:mesas,id',
             'inicio_reserva' => 'required|date|after:17:59|before:23:59',
-            'fim_reserva' => 'required|date|after:inicio_reserva|before:23:59',]);
+            'fim_reserva' => 'required|date|after:inicio_reserva|before:23:59',
+        ]);
 
         $conflito = Reserva::where('mesa_id', $request->mesa_id)
             ->where(function ($query) use ($request) {
@@ -132,7 +134,7 @@ class ReservaController extends Controller
             'inicio_reserva' => $request->inicio_reserva,
             'fim_reserva' => $request->fim_reserva,
             'user_id' => Auth::id(),
-            ]);
+        ]);
         return redirect()->route('reserva.index')->with('success', 'Reserva atualizada com sucesso.');
     }
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Reserva;
+use App\Models\Reserva;
 use Illuminate\Http\Request;
 
 class ReservaController extends Controller
@@ -20,7 +20,7 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        $reservas = $this->repository->all();
+        $reservas = $this->repository->with('user')->paginate();
         return view('admin.reserva.index', compact('reservas'));
     }
 

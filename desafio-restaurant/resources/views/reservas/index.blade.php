@@ -44,6 +44,9 @@
                         @endforeach
                         </tbody>
                     </table>
+                    <div class="card-footer">
+                        {!! $reservas->links() !!}
+                    </div>
                 @endif
             </div>
         </div>

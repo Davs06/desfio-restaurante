@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Admin\Mesa;
-use App\Models\Admin\Reserva;
+use App\Models\Mesa;
+use App\Models\Reserva;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Admin\Reserva>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reserva>
  */
 class ReservaFactory extends Factory
 {

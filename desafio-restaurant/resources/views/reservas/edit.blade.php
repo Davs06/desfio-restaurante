@@ -37,35 +37,17 @@
                         @enderror
                     </div>
 
-                    <!-- Seleção de Horário de Início -->
+                    <!-- Início da Reserva -->
                     <div class="mb-3">
                         <label for="inicio_reserva" class="form-label">Início da Reserva</label>
-                        <select
+                        <input
+                            type="datetime-local"
                             id="inicio_reserva"
                             name="inicio_reserva"
                             class="form-control @error('inicio_reserva') is-invalid @enderror"
+                            value="{{ old('inicio_reserva') }}"
                             required
                         >
-                            <option value="" disabled selected>Selecione o horário de início</option>
-                            @php
-                                $startHour = 18;
-                                $endHour = 23;
-                                $today = now()->format('Y-m-d');
-                            @endphp
-                            @for($hour = $startHour; $hour < $endHour; $hour++)
-                                @foreach([0, 30] as $minute)
-                                    <!-- Intervalos de 30 minutos -->
-                                    @php
-                                        $time = sprintf('%02d:%02d:00', $hour, $minute);
-                                        $datetime = "$today $time";
-                                    @endphp
-                                    <option
-                                        value="{{ $datetime }}" {{ old('inicio_reserva') == $datetime ? 'selected' : '' }}>
-                                        {{ sprintf('%02d:%02d', $hour, $minute) }}
-                                    </option>
-                                @endforeach
-                            @endfor
-                        </select>
                         @error('inicio_reserva')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -73,17 +55,17 @@
                         @enderror
                     </div>
 
-                    <!-- Seleção de Horário de Fim -->
+                    <!-- Fim da Reserva -->
                     <div class="mb-3">
                         <label for="fim_reserva" class="form-label">Fim da Reserva</label>
-                        <select
+                        <input
+                            type="datetime-local"
                             id="fim_reserva"
                             name="fim_reserva"
                             class="form-control @error('fim_reserva') is-invalid @enderror"
+                            value="{{ old('fim_reserva') }}"
                             required
                         >
-                            <option value="" disabled selected>Selecione o horário de fim</option>
-                        </select>
                         @error('fim_reserva')
                         <div class="invalid-feedback">
                             {{ $message }}

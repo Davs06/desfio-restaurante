@@ -48,8 +48,4 @@ Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 
-
-
-//    ->middleware('auth');
-
 require __DIR__.'/auth.php';

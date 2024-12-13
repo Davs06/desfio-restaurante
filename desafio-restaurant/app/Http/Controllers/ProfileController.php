@@ -14,7 +14,7 @@ class ProfileController extends Controller
 
     public function index(Request $request){
 
-        $users =  $request->user()->all();
+        $users =  $request->user()->latest()->paginate();
         return view('profile.index', compact('users'));
     }
     /**
