@@ -22,7 +22,7 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        $reservas = $this->repository->where('user_id', Auth::id())->paginate();
+        $reservas = $this->repository->with('mesa')->where('user_id', Auth::id())->paginate();
 
         return view('reservas.index', compact('reservas'));
     }
@@ -43,7 +43,14 @@ class ReservaController extends Controller
     public function store(Request $request)
     {
 
+        //Verificação aos domingos
+        $inicio = Carbon::parse($request->inicio_reserva);
 
+        if ($inicio->isSunday()) {
+            return back()->withErrors('Reservas não são permitidas aos domingos.');
+        }
+
+        //Fazendo validações
         $request->validate([
             'mesa_id' => 'required|exists:mesas,id',
             'inicio_reserva' => 'required|date|after:17:59|before:23:59',
@@ -58,16 +65,12 @@ class ReservaController extends Controller
             })
             ->exists();
 
+
         if ($conflito) {
             return back()->withErrors('A mesa já está reservada para o horário selecionado.');
         }
 
-        //Verificação aos domingos
-        $inicio = Carbon::parse($request->inicio_reserva);
 
-        if ($inicio->isSunday()) {
-            return back()->withErrors('Reservas não são permitidas aos domingos.');
-        }
 
         $this->repository->create([
             'mesa_id' => $request->mesa_id,

@@ -20,7 +20,7 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        $reservas = $this->repository->with('user')->paginate();
+        $reservas = $this->repository->with('user')->latest()->paginate();
         return view('admin.reserva.index', compact('reservas'));
     }
 
