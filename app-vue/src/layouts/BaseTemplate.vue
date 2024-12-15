@@ -5,7 +5,9 @@ import Header from "@/layouts/_partials/header.vue";
 </script>
 
 <template>
-  <div class="container">
+  <div>
     <Header />
+
+    <router-view></router-view>
   </div>
 </template>

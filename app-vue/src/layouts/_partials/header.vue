@@ -4,7 +4,9 @@ import { RouterLink } from "vue-router";
 
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav
+      class="navbar navbar-expand-lg shadow p-3 mb-5 bg-body-tertiary rounded opacity-75"
+    >
       <div class="container-fluid">
         <RouterLink :to="{ name: 'home' }" class="navbar-brand">
           <img

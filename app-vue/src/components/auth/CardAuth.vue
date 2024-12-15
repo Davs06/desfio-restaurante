@@ -10,7 +10,7 @@ defineProps({
 <template>
   <div class="container d-flex justify-content-center my-5">
     <div class="card">
-      <div class="card-header">
+      <div class="card-header d-flex justify-content-center">
         <router-link :to="{ name: 'home' }" style="font-size: 24px; color: black">
           {{ title }}
         </router-link>
