@@ -24,6 +24,12 @@
             must not contain spaces, special characters, or emoji.
           </div>
         </div>
+        <div class="mb-3">
+          <p>
+            Caso ainda nao seja cadastrado:
+            <router-link :to="{ name: 'logon' }">Cadastrar-se</router-link>
+          </p>
+        </div>
         <input class="btn btn-primary" type="submit" value="Submit" />
       </div>
     </form>
