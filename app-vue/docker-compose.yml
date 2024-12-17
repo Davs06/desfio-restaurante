@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  vue-app:
+    build: .
+    ports:
+      - "8081:8081"
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
