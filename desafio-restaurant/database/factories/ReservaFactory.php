@@ -25,7 +25,7 @@ class ReservaFactory extends Factory
     {
 
         $inicio = $this->faker->dateTimeBetween('18:00:00', '23:00:00');
-        $fim = (clone $inicio)->modify('+2 hours');
+        $fim = (clone $inicio)->modify('+1 hours');
 
         return [
             'mesa_id' => Mesa::inRandomOrder()->first()->id,
